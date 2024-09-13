@@ -1,41 +1,120 @@
+/* Загальний фон */
 .App {
   text-align: center;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  background-color: #282c34; /* Темний сірий фон */
+  color: #e0e0e0; /* Світлий текст */
 }
 
 h1 {
   margin-bottom: 20px;
+  color: #80d6ff; /* Пастельний блакитний заголовок */
 }
 
-.filters {
+.filters, .add-user {
   margin-bottom: 20px;
 }
 
-.filters input {
+/* Стилі для вхідних полів */
+.filters input, .add-user input {
   margin-right: 10px;
-  padding: 5px;
+  padding: 12px;
   font-size: 14px;
+  border: 1px solid #444; /* Темна сірка рамка */
+  border-radius: 4px;
+  background-color: #333; /* Темний фон для полів */
+  color: #e0e0e0; /* Світлий текст в полях */
 }
 
+button {
+  padding: 12px 18px;
+  font-size: 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #80d6ff; /* Пастельний блакитний фон кнопки */
+  color: #282c34; /* Темний текст на кнопці */
+}
+
+button:hover {
+  background-color: #60b0ff; /* Темніший блакитний при наведенні */
+}
+
+.add-user {
+  margin-top: 20px;
+}
+
+/* Таблиця */
 table {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   border-collapse: collapse;
 }
 
 table, th, td {
-  border: 1px solid black;
+  border: 1px solid #444; /* Темна сірка рамка для таблиці */
 }
 
 th, td {
-  padding: 10px;
+  padding: 12px;
   text-align: left;
 }
 
 thead {
-  background-color: #f2f2f2;
+  background-color: #282c34; /* Темний фон для заголовків таблиці */
+}
+
+thead th {
+  color: #80d6ff; /* Пастельний блакитний колір для тексту заголовків таблиці */
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #2c2c2c; /* Темніший фон для парних рядків */
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #282c34; /* Темний фон для непарних рядків */
+}
+
+/* Медіа запити для адаптивності */
+@media (max-width: 768px) {
+  .filters input, .add-user input {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 10px auto;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .filters input, .add-user input {
+    padding: 10px;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  table, th, td {
+    font-size: 13px;
+  }
 }

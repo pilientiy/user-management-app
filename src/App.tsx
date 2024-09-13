@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers, User } from './features/users/userSlice';
+import { fetchUsers, addUser, deleteUser, User } from './features/users/userSlice';
 import { RootState, AppDispatch } from './store';
 import './App.css';
 
@@ -13,6 +13,13 @@ const App: React.FC = () => {
   const [emailFilter, setEmailFilter] = useState('');
   const [phoneFilter, setPhoneFilter] = useState('');
 
+  const [newUser, setNewUser] = useState<Omit<User, 'id'>>({
+    name: '',
+    username: '',
+    email: '',
+    phone: '',
+  });
+
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
@@ -23,6 +30,15 @@ const App: React.FC = () => {
     user.email.toLowerCase().includes(emailFilter.toLowerCase()) &&
     user.phone.toLowerCase().includes(phoneFilter.toLowerCase())
   );
+
+  const handleAddUser = () => {
+    dispatch(addUser(newUser));
+    setNewUser({ name: '', username: '', email: '', phone: '' }); // Clear form
+  };
+
+  const handleDeleteUser = (userId: number) => {
+    dispatch(deleteUser(userId));
+  };
 
   return (
     <div className="App">
@@ -55,6 +71,35 @@ const App: React.FC = () => {
         />
       </div>
 
+      <div className="add-user">
+        <h2>Add New User</h2>
+        <input
+          type="text"
+          placeholder="Name"
+          value={newUser.name}
+          onChange={(e) => setNewUser({ ...newUser, name: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Username"
+          value={newUser.username}
+          onChange={(e) => setNewUser({ ...newUser, username: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Email"
+          value={newUser.email}
+          onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Phone"
+          value={newUser.phone}
+          onChange={(e) => setNewUser({ ...newUser, phone: e.target.value })}
+        />
+        <button onClick={handleAddUser}>Add User</button>
+      </div>
+
       <table>
         <thead>
           <tr>
@@ -62,6 +107,7 @@ const App: React.FC = () => {
             <th>Username</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -72,11 +118,14 @@ const App: React.FC = () => {
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
+                <td>
+                  <button onClick={() => handleDeleteUser(user.id)}>Delete</button>
+                </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan={4}>No users found</td>
+              <td colSpan={5}>No users found</td>
             </tr>
           )}
         </tbody>
