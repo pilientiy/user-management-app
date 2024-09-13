@@ -1,9 +1,21 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import { store } from './store';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+// Мокування fetchUsers
+jest.mock('./features/users/userSlice', () => ({
+  fetchUsers: jest.fn(),
+}));
+
+test('renders the user management table', () => {
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+
+  // Перевірка наявності заголовка
+  expect(screen.getByText(/User Management Table/i)).toBeInTheDocument();
 });
