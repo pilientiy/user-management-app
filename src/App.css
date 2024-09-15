@@ -1,74 +1,74 @@
-/* Загальний фон */
+
 html, body {
   height: 100%;
   margin: 0;
-  background-color: #282c34; /* Темний фон для всієї сторінки */
-  color: #e0e0e0; /* Світлий текст */
+  background-color: #282c34; 
+  color: #e0e0e0;
 }
 
 .App {
-  min-height: 100vh; /* Мінімальна висота для покриття всього екрану */
+  min-height: 100vh;
   text-align: center;
   font-family: 'Arial', sans-serif;
   padding: 20px;
-  background-color: #282c34; /* Темний сірий фон */
-  color: #e0e0e0; /* Світлий текст */
+  background-color: #282c34;
+  color: #e0e0e0; 
 }
 
-/* Заголовок */
-h1 {
+
+h1, h2 {
   margin-bottom: 20px;
-  color: #80d6ff; /* Пастельний блакитний заголовок */
+  color: #80d6ff; 
 }
 
-/* Фільтри */
+
 .filters {
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px; /* Проміжок між фільтрами */
+  gap: 10px;
 }
 
-/* Форма додавання користувача */
+
 .add-user {
   margin-bottom: 20px;
   display: flex;
-  flex-direction: column; /* Вертикальне вирівнювання */
+  flex-direction: column;
   align-items: center;
 }
 
-/* Заголовок для форми додавання користувача */
+
 .add-user h2 {
-  margin-bottom: 10px; /* Відступ між заголовком і полями вводу */
-  text-align: center; /* Вирівнювання заголовка по центру */
+  margin-bottom: 10px; 
+  text-align: center;
 }
 
-/* Поля вводу для форми додавання користувача */
+
 .add-user .inputs {
-  display: flex; /* Розміщення полів вводу в лінійку */
-  gap: 10px; /* Проміжок між полями вводу */
-  flex-wrap: wrap; /* Перенос полів на новий рядок при необхідності */
-  justify-content: center; /* Вирівнювання полів по центру */
+  display: flex; 
+  gap: 10px; 
+  flex-wrap: wrap; 
+  justify-content: center; 
 }
 
 .add-user input {
   padding: 12px;
   font-size: 14px;
-  border: 1px solid #444; /* Темна сірка рамка */
+  border: 1px solid #444; 
   border-radius: 4px;
-  background-color: #333; /* Темний фон для полів */
-  color: #e0e0e0; /* Світлий текст в полях */
+  background-color: #333; 
+  color: #e0e0e0; 
 }
 
-/* Стилі для фільтрів */
+
 .filters input {
   padding: 12px;
   font-size: 14px;
-  border: 1px solid #444; /* Темна сірка рамка */
+  border: 1px solid #444; 
   border-radius: 4px;
-  background-color: #333; /* Темний фон для полів */
-  color: #e0e0e0; /* Світлий текст в полях */
+  background-color: #333; 
+  color: #e0e0e0; 
 }
 
 button {
@@ -78,15 +78,15 @@ button {
   cursor: pointer;
   border: none;
   border-radius: 4px;
-  background-color: #80d6ff; /* Пастельний блакитний фон кнопки */
-  color: #282c34; /* Темний текст на кнопці */
+  background-color: #80d6ff; 
+  color: #282c34; 
 }
 
 button:hover {
-  background-color: #60b0ff; /* Темніший блакитний при наведенні */
+  background-color: #60b0ff; 
 }
 
-/* Таблиця */
+
 table {
   width: 100%;
   margin: 0 auto;
@@ -94,7 +94,7 @@ table {
 }
 
 table, th, td {
-  border: 1px solid #444; /* Темна сірка рамка для таблиці */
+  border: 1px solid #444; 
 }
 
 th, td {
@@ -103,29 +103,29 @@ th, td {
 }
 
 thead {
-  background-color: #282c34; /* Темний фон для заголовків таблиці */
+  background-color: #282c34; 
 }
 
 thead th {
-  color: #80d6ff; /* Пастельний блакитний колір для тексту заголовків таблиці */
+  color: #80d6ff; 
 }
 
 tbody tr:nth-child(even) {
-  background-color: #2c2c2c; /* Темніший фон для парних рядків */
+  background-color: #2c2c2c; 
 }
 
 tbody tr:nth-child(odd) {
-  background-color: #282c34; /* Темний фон для непарних рядків */
+  background-color: #282c34; 
 }
 
-/* Якщо нема користувачів, забезпечити темний фон */
+
 tbody tr {
   background-color: #282c34;
 }
 
-/* Медіа запити для адаптивності */
+
 @media (max-width: 768px) {
-  /* Для мобільних та планшетів елементи будуть в стовпчик */
+  
   .filters {
     flex-direction: column;
   }
@@ -136,15 +136,15 @@ tbody tr {
   }
 
   .add-user .inputs {
-    flex-direction: column; /* Поля вводу в стовпчик на мобільних пристроях */
-    gap: 10px; /* Проміжок між полями вводу */
+    flex-direction: column; 
+    gap: 10px; 
     align-items: center;
   }
 
   .filters input, .add-user input {
     display: block;
-    width: 100%; /* Ширина 100% для мобільних пристроїв */
-    max-width: 400px; /* Максимальна ширина полів */
+    width: 100%; 
+    max-width: 400px;
     margin: 10px auto;
   }
 

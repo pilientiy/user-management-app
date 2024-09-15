@@ -33,7 +33,7 @@ const App: React.FC = () => {
 
   const handleAddUser = () => {
     dispatch(addUser(newUser));
-    setNewUser({ name: '', username: '', email: '', phone: '' }); // Clear form
+    setNewUser({ name: '', username: '', email: '', phone: '' }); 
   };
 
   const handleDeleteUser = (userId: number) => {

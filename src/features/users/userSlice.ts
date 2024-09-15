@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Оголосіть інтерфейс User
+
 export interface User {
   id: number;
   name: string;
@@ -22,13 +22,13 @@ const initialState: UsersState = {
   error: null,
 };
 
-// Асинхронний thunk для отримання користувачів
+
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
   const response = await axios.get<User[]>('https://jsonplaceholder.typicode.com/users');
   return response.data;
 });
 
-// Асинхронний thunk для додавання нового користувача
+
 export const addUser = createAsyncThunk(
   'users/addUser',
   async (user: Omit<User, 'id'>) => {
@@ -37,7 +37,7 @@ export const addUser = createAsyncThunk(
   }
 );
 
-// Асинхронний thunk для видалення користувача
+
 export const deleteUser = createAsyncThunk(
   'users/deleteUser',
   async (userId: number) => {
