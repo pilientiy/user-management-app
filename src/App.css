@@ -1,5 +1,13 @@
 /* Загальний фон */
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #282c34; /* Темний фон для всієї сторінки */
+  color: #e0e0e0; /* Світлий текст */
+}
+
 .App {
+  min-height: 100vh; /* Мінімальна висота для покриття всього екрану */
   text-align: center;
   font-family: 'Arial', sans-serif;
   padding: 20px;
@@ -7,18 +15,54 @@
   color: #e0e0e0; /* Світлий текст */
 }
 
+/* Заголовок */
 h1 {
   margin-bottom: 20px;
   color: #80d6ff; /* Пастельний блакитний заголовок */
 }
 
-.filters, .add-user {
+/* Фільтри */
+.filters {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px; /* Проміжок між фільтрами */
 }
 
-/* Стилі для вхідних полів */
-.filters input, .add-user input {
-  margin-right: 10px;
+/* Форма додавання користувача */
+.add-user {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column; /* Вертикальне вирівнювання */
+  align-items: center;
+}
+
+/* Заголовок для форми додавання користувача */
+.add-user h2 {
+  margin-bottom: 10px; /* Відступ між заголовком і полями вводу */
+  text-align: center; /* Вирівнювання заголовка по центру */
+}
+
+/* Поля вводу для форми додавання користувача */
+.add-user .inputs {
+  display: flex; /* Розміщення полів вводу в лінійку */
+  gap: 10px; /* Проміжок між полями вводу */
+  flex-wrap: wrap; /* Перенос полів на новий рядок при необхідності */
+  justify-content: center; /* Вирівнювання полів по центру */
+}
+
+.add-user input {
+  padding: 12px;
+  font-size: 14px;
+  border: 1px solid #444; /* Темна сірка рамка */
+  border-radius: 4px;
+  background-color: #333; /* Темний фон для полів */
+  color: #e0e0e0; /* Світлий текст в полях */
+}
+
+/* Стилі для фільтрів */
+.filters input {
   padding: 12px;
   font-size: 14px;
   border: 1px solid #444; /* Темна сірка рамка */
@@ -40,10 +84,6 @@ button {
 
 button:hover {
   background-color: #60b0ff; /* Темніший блакитний при наведенні */
-}
-
-.add-user {
-  margin-top: 20px;
 }
 
 /* Таблиця */
@@ -78,20 +118,42 @@ tbody tr:nth-child(odd) {
   background-color: #282c34; /* Темний фон для непарних рядків */
 }
 
+/* Якщо нема користувачів, забезпечити темний фон */
+tbody tr {
+  background-color: #282c34;
+}
+
 /* Медіа запити для адаптивності */
 @media (max-width: 768px) {
+  /* Для мобільних та планшетів елементи будуть в стовпчик */
+  .filters {
+    flex-direction: column;
+  }
+
+  .add-user {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .add-user .inputs {
+    flex-direction: column; /* Поля вводу в стовпчик на мобільних пристроях */
+    gap: 10px; /* Проміжок між полями вводу */
+    align-items: center;
+  }
+
   .filters input, .add-user input {
     display: block;
-    width: calc(100% - 20px);
+    width: 100%; /* Ширина 100% для мобільних пристроїв */
+    max-width: 400px; /* Максимальна ширина полів */
     margin: 10px auto;
   }
 
   button {
     width: 100%;
+    max-width: 400px;
   }
 
   table {
-    width: 100%;
     font-size: 14px;
   }
 
